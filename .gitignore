@@ -1,0 +1,14 @@
+.gradle/
+build/
+**/build/
+node_modules/
+**/node_modules/
+dist/
+**/dist/
+.idea/
+.vscode/
+*.iml
+*.log
+.env
+.DS_Store
+
