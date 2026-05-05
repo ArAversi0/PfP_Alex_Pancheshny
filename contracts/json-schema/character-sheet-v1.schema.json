@@ -1,0 +1,261 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pfp.local/schemas/character-sheet-v1.schema.json",
+  "title": "PfP Character Sheet Export",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "character"],
+  "properties": {
+    "schemaVersion": {
+      "const": "1.0"
+    },
+    "character": {
+      "$ref": "#/$defs/character"
+    }
+  },
+  "$defs": {
+    "character": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "info",
+        "stats",
+        "skills",
+        "condition",
+        "blessings",
+        "inventory",
+        "equipment",
+        "money",
+        "spells",
+        "additionalInfo"
+      ],
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "image": { "type": "string", "default": "" },
+        "info": { "$ref": "#/$defs/info" },
+        "stats": { "$ref": "#/$defs/stats" },
+        "skills": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/skill" }
+        },
+        "condition": { "$ref": "#/$defs/condition" },
+        "blessings": { "$ref": "#/$defs/blessings" },
+        "inventory": { "$ref": "#/$defs/inventory" },
+        "equipment": { "$ref": "#/$defs/equipment" },
+        "money": { "$ref": "#/$defs/money" },
+        "spells": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/spell" }
+        },
+        "additionalInfo": { "$ref": "#/$defs/additionalInfo" }
+      }
+    },
+    "info": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["level", "origin", "background", "class", "specialization"],
+      "properties": {
+        "level": { "type": "integer", "minimum": 1 },
+        "origin": { "type": "string" },
+        "background": { "type": "string" },
+        "class": { "type": "string" },
+        "specialization": { "type": "string" }
+      }
+    },
+    "stats": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["strength", "dexterity", "stamina", "intelligence", "charisma", "luck", "mind"],
+      "properties": {
+        "strength": { "$ref": "#/$defs/nonNegativeInteger" },
+        "dexterity": { "$ref": "#/$defs/nonNegativeInteger" },
+        "stamina": { "$ref": "#/$defs/nonNegativeInteger" },
+        "intelligence": { "$ref": "#/$defs/nonNegativeInteger" },
+        "charisma": { "$ref": "#/$defs/nonNegativeInteger" },
+        "luck": { "$ref": "#/$defs/nonNegativeInteger" },
+        "mind": { "$ref": "#/$defs/nonNegativeInteger" }
+      }
+    },
+    "skill": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["stat", "name", "level"],
+      "properties": {
+        "stat": {
+          "enum": ["STRENGTH", "DEXTERITY", "STAMINA", "INTELLIGENCE", "CHARISMA", "LUCK", "MIND"]
+        },
+        "name": {
+          "enum": [
+            "ATHLETICS", "BLOCKING", "GRAPPLING", "BRUTE_FORCE", "REFLEXES", "EVASION",
+            "ACROBATICS", "STEALTH", "SLEIGHT_OF_HAND", "BALANCE", "PAIN_TOLERANCE",
+            "ENDURANCE", "CARRYING_CAPACITY", "ANALYSIS", "MAGIC", "RELIGION", "SURVIVAL",
+            "MEDICINE", "SCIENCE", "AWARENESS", "RHETORIC", "PERFORMANCE", "INTIMIDATION",
+            "CHARM", "BUSINESS_SENSE", "FORTUNE", "PROFIT", "WILLPOWER", "COMPOSURE", "SUGGESTION"
+          ]
+        },
+        "level": { "$ref": "#/$defs/nonNegativeInteger" }
+      }
+    },
+    "condition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["hp", "passiveDefense", "movementSpeed", "maxCarryWeight"],
+      "properties": {
+        "hp": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["head", "neck", "torso", "leftArm", "rightArm", "leftLeg", "rightLeg"],
+          "properties": {
+            "head": { "$ref": "#/$defs/bodyPartHealth" },
+            "neck": { "$ref": "#/$defs/bodyPartHealth" },
+            "torso": { "$ref": "#/$defs/bodyPartHealth" },
+            "leftArm": { "$ref": "#/$defs/bodyPartHealth" },
+            "rightArm": { "$ref": "#/$defs/bodyPartHealth" },
+            "leftLeg": { "$ref": "#/$defs/bodyPartHealth" },
+            "rightLeg": { "$ref": "#/$defs/bodyPartHealth" }
+          }
+        },
+        "passiveDefense": { "$ref": "#/$defs/nonNegativeInteger" },
+        "movementSpeed": { "$ref": "#/$defs/nonNegativeNumber" },
+        "maxCarryWeight": { "$ref": "#/$defs/nonNegativeNumber" }
+      }
+    },
+    "bodyPartHealth": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["max", "current"],
+      "properties": {
+        "max": { "$ref": "#/$defs/nonNegativeInteger" },
+        "current": { "$ref": "#/$defs/nonNegativeInteger" }
+      }
+    },
+    "blessings": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["blessings", "inspirations"],
+      "properties": {
+        "blessings": { "$ref": "#/$defs/nonNegativeInteger" },
+        "inspirations": { "$ref": "#/$defs/nonNegativeInteger" }
+      }
+    },
+    "inventory": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["items", "slots"],
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/item" }
+        },
+        "slots": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/inventorySlot" }
+        }
+      }
+    },
+    "item": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "type", "title", "image", "weight"],
+      "properties": {
+        "id": { "type": "string", "format": "uuid" },
+        "type": { "enum": ["ITEM", "EQUIPMENT", "TRADE"] },
+        "title": { "type": "string", "minLength": 1 },
+        "image": { "type": "string", "minLength": 1 },
+        "weight": { "$ref": "#/$defs/nonNegativeNumber" },
+        "description": { "type": "string", "default": "" },
+        "equipmentType": { "enum": ["HEAD", "NECK", "TORSO", "ARMS", "LEGS", "WEAPON", "TALISMAN"] },
+        "sellPriceBase": { "$ref": "#/$defs/nonNegativeMoney" }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "type": { "const": "EQUIPMENT" } }, "required": ["type"] },
+          "then": { "required": ["equipmentType"] }
+        },
+        {
+          "if": { "properties": { "type": { "const": "TRADE" } }, "required": ["type"] },
+          "then": { "required": ["sellPriceBase"] }
+        }
+      ]
+    },
+    "inventorySlot": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["index"],
+      "properties": {
+        "index": { "$ref": "#/$defs/nonNegativeInteger" },
+        "itemId": { "type": ["string", "null"], "format": "uuid" }
+      }
+    },
+    "equipment": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "HEAD": { "$ref": "#/$defs/nullableUuid" },
+        "NECK": { "$ref": "#/$defs/nullableUuid" },
+        "TORSO": { "$ref": "#/$defs/nullableUuid" },
+        "ARMS": { "$ref": "#/$defs/nullableUuid" },
+        "LEGS": { "$ref": "#/$defs/nullableUuid" },
+        "WEAPON_1": { "$ref": "#/$defs/nullableUuid" },
+        "WEAPON_2": { "$ref": "#/$defs/nullableUuid" },
+        "TALISMAN_1": { "$ref": "#/$defs/nullableUuid" },
+        "TALISMAN_2": { "$ref": "#/$defs/nullableUuid" },
+        "TALISMAN_3": { "$ref": "#/$defs/nullableUuid" },
+        "TALISMAN_4": { "$ref": "#/$defs/nullableUuid" }
+      }
+    },
+    "money": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["amountBase", "displayCurrency"],
+      "properties": {
+        "amountBase": { "$ref": "#/$defs/nonNegativeMoney" },
+        "displayCurrency": { "enum": ["CURRENCY_1", "CURRENCY_2", "CURRENCY_3", "CURRENCY_4"] }
+      }
+    },
+    "spell": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "name", "type", "class", "image", "requirements"],
+      "properties": {
+        "id": { "type": "string", "format": "uuid" },
+        "name": { "type": "string", "minLength": 1 },
+        "type": { "enum": ["SPELL", "CANTRIP", "RITUAL"] },
+        "class": { "enum": ["PRIEST", "SPELLCASTER", "WARLOCK", "DRUID", "ARTIST", "INQUISITOR", "SAVAGE"] },
+        "image": { "type": "string", "minLength": 1 },
+        "requirements": { "type": "string", "minLength": 1 },
+        "description": { "type": "string", "default": "" }
+      }
+    },
+    "additionalInfo": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["appearance", "detailedOrigin", "allies", "notesPrimary", "notesSecondary"],
+      "properties": {
+        "appearance": { "type": "string" },
+        "detailedOrigin": { "type": "string" },
+        "allies": { "type": "string" },
+        "notesPrimary": { "type": "string" },
+        "notesSecondary": { "type": "string" }
+      }
+    },
+    "nullableUuid": {
+      "type": ["string", "null"],
+      "format": "uuid"
+    },
+    "nonNegativeInteger": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "nonNegativeNumber": {
+      "type": "number",
+      "minimum": 0
+    },
+    "nonNegativeMoney": {
+      "type": "number",
+      "minimum": 0,
+      "multipleOf": 0.01
+    }
+  }
+}
