@@ -1,0 +1,38 @@
+spring:
+  application:
+    name: pfp-companion-system
+  datasource:
+    url: ${PFP_DB_URL:jdbc:postgresql://localhost:5432/pfp}
+    username: ${PFP_DB_USERNAME:pfp}
+    password: ${PFP_DB_PASSWORD:pfp}
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+  mail:
+    host: ${PFP_MAIL_HOST:localhost}
+    port: ${PFP_MAIL_PORT:1025}
+    username: ${PFP_MAIL_USERNAME:}
+    password: ${PFP_MAIL_PASSWORD:}
+    properties:
+      mail:
+        smtp:
+          auth: ${PFP_MAIL_SMTP_AUTH:false}
+          starttls:
+            enable: ${PFP_MAIL_SMTP_STARTTLS:false}
+
+pfp:
+  mail:
+    mode: ${PFP_MAIL_MODE:smtp}
+    from: ${PFP_MAIL_FROM:noreply@pfp.local}
+  auth:
+    jwt-secret: ${PFP_JWT_SECRET:}
+    access-token-lifetime: PT15M
+    refresh-token-lifetime: P30D
+    verification-token-lifetime: PT24H
+    password-reset-token-lifetime: PT1H
+    oauth2-exchange-code-lifetime: PT2M
+    frontend-base-url: ${PFP_FRONTEND_BASE_URL:http://localhost:5173}
+    oauth2-frontend-callback-url: ${PFP_OAUTH2_FRONTEND_CALLBACK_URL:http://localhost:5173/oauth2/callback}
+    google-client-id: ${PFP_GOOGLE_CLIENT_ID:}
+    google-client-secret: ${PFP_GOOGLE_CLIENT_SECRET:}
