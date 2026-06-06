@@ -1,0 +1,267 @@
+[
+  {
+    "slug": "character-creation",
+    "parentSlug": null,
+    "title": "Character creation",
+    "summary": "Origins, classes, background, specializations, faith, and starting equipment.",
+    "contentMarkdown": "",
+    "sortOrder": 100,
+    "children": [
+      {
+        "slug": "origins",
+        "parentSlug": "character-creation",
+        "title": "Origins",
+        "summary": "Thirteen available origin concepts.",
+        "contentMarkdown": "# 13 происхождений:\n\n1) **Сторонник традиционной ветви** (объединения из независимых территорий и мелких государств, всё также верующих в единого бога (его по факту нет)) [[1.1.1 Традиционник]]\n\n2) **Последователь Арнира** (поклоняющиеся расе Арканис (маги, \"арки\")) (Используют людей в качестве крепостных, низшего сословия / взамен последователи учатся азам магии) [[1.1.2 Последователь Арнира]]\n\n3) **Отмеченный Небожителями** (неведомая раса небесного города, не вступают в контакт с отмеченными, а влияют на Землю через них) [[1.1.3 Меченый]]\n\n4) **Союз \"Плоти и Металла\"** (люди, под покровительством расы \"Биомехов\") [[1.1.4 Последователь Плоти и Металла]]\n\n5) **Жертвенник** (Культ Арахны / люди, живущие подле расы арахнидов) [[1.1.5 Жертвенник]]\n\n6) **Узник Органики** (рабы расы Органиков (Органическая материя, что умеет поглощать живое и принимать его форму)) [[1.1.6 Узник Органики]]\n\n7) **Вурдалак** (подземный вид, существовавший на одной планете с людьми) [[1.1.7 Вурдалак]]\n\n8) **Гражданин Новой Эпохи** (государство людей, что не отошли от обычного пути развития после Переселения Богов, атеисты, не терпят магию) [[1.1.8 Гражданин Новой Эпохи]]\n\n9) Житель Диких Земель (откатились в полупервобытное общество, культ физической силы) [[1.1.9 Житель Диких Земель]]\n\n10) Кочевник [[1.1.10 Кочевник]]\n\n11) Житель Вечнолесья [[1.1.11 Житель Вечнолесья]]\n\n12) Гражданин Лансдейла\n\n13) Собственное происхождение (своё или из мелких сообществ/фракций, прописанных мастером).",
+        "sortOrder": 110,
+        "children": []
+      },
+      {
+        "slug": "classes",
+        "parentSlug": "character-creation",
+        "title": "Classes",
+        "summary": "Available class list.",
+        "contentMarkdown": "1) Рыцарь #Рыцарь\n\n2) Наёмник #Наёмник\n\n3) Учёный #Учёный\n\n4) Стрелок #Стрелок\n\n5) Обыватель #Обыватель\n\n6) Жрец #Жрец\n\n7) Заклинатель #Заклинатель\n\n8) Колдун #Колдун\n\n9) Друид #Друид\n\n10) Артист #Артист\n\n11) Инквизитор #Инквизитор\n\n12) Дикарь #Дикарь",
+        "sortOrder": 120,
+        "children": []
+      },
+      {
+        "slug": "background",
+        "parentSlug": "character-creation",
+        "title": "Background",
+        "summary": "",
+        "contentMarkdown": "",
+        "sortOrder": 130,
+        "children": []
+      },
+      {
+        "slug": "specializations",
+        "parentSlug": "character-creation",
+        "title": "Specializations",
+        "summary": "Specializations grouped by class.",
+        "contentMarkdown": "1) #Рыцарь\n    1. Страж\n    2. Крестоносец\n    3. Берсерк\n    4. Гладиатор\n    5. Командующий\n    6. Дуэлянт\n\n2) #Наёмник\n    1. Телохранитель\n    2. Разбойник\n    3. Убийца\n    4. Следопыт\n    5. Сапёр\n    6. Матрос\n    7. Военврач\n\n3) #Стрелок\n    1. Мушкетёр\n    2. Тихушник\n    3. Снайпер\n    4. Джагернаут\n    5. Ковбой\n    6. Солдат\n\n4) #Обыватель\n    1) Мастер-оружейник\n    2) Мастер-бронник\n    3) Шахтёр\n    4) Фуражир (Обеспечение едой; может быть фермером, рыбаком, охотником, мельником, собирателем)\n    5) Лекарь\n\n5) #Учёный\n    1. Алхимик\n    2. Механик\n    3. Хирург\n    4. Антиквар\n    5. Тауматург\n\n6) #Жрец\n    1. Некромант\n    2. Проповедник\n    3. Еретик / Тронутый мерзостью (имеет способности иного мира, откуда пришли разные твари (на границе с подземьем))\n    4. Предсказатель\n    5. Гемотург\n    6. Вестник рока (истово верит в силу слов / плохой контроль своей магии)\n\n7) #Дикарь\n    1. Закалённый\n    2. Тронутый мерзостью\n    3. Шаман\n    4. Самобичеватель\n    5. Безумец (Буйный псих / ДУРКА)\n    6. Танец клинков\n\n8) #Заклинатель\n    1. Пиромант\n    2. Резчик рун\n    3. Конденсор (Водолаз)\n    4. Нейромант\n    5. Буревестник (Воздухан)\n    6. Творец хаоса (Анархист)\n    7. Телекинетик\n\n9) #Колдун\n    1. Инвокер\n    2. Окультист\n    3. Контрактор\n    4. Антропомант\n    5. Алеатор\n    6. Кукольник\n\n10) #Друид\n    1. Мутант\n    2. Дрессировщик\n    3. Безликий\n    4. Водяной\n    5. Грибник\n\n11) #Инквизитор\n    1. Палач\n    2. Чистильщик\n    3. Охотник на ведьм\n    4. Фанатик\n    5. Отлучённый\n\n12) #Артист\n    1. Лицедей\n    2. Фокусник\n    3. Музыкант\n    4. Факел\n    5. Каскадёр\n    6. Стихоплёт",
+        "sortOrder": 140,
+        "children": []
+      },
+      {
+        "slug": "faith",
+        "parentSlug": "character-creation",
+        "title": "Faith",
+        "summary": "",
+        "contentMarkdown": "",
+        "sortOrder": 150,
+        "children": []
+      },
+      {
+        "slug": "equipment",
+        "parentSlug": "character-creation",
+        "title": "Equipment",
+        "summary": "",
+        "contentMarkdown": "",
+        "sortOrder": 160,
+        "children": []
+      }
+    ]
+  },
+  {
+    "slug": "characteristics",
+    "parentSlug": null,
+    "title": "Characteristics",
+    "summary": "",
+    "contentMarkdown": "",
+    "sortOrder": 200,
+    "children": []
+  },
+  {
+    "slug": "world-rules",
+    "parentSlug": null,
+    "title": "World",
+    "summary": "",
+    "contentMarkdown": "",
+    "sortOrder": 300,
+    "children": [
+      {
+        "slug": "time",
+        "parentSlug": "world-rules",
+        "title": "Time",
+        "summary": "",
+        "contentMarkdown": "",
+        "sortOrder": 310,
+        "children": []
+      },
+      {
+        "slug": "travel",
+        "parentSlug": "world-rules",
+        "title": "Travel",
+        "summary": "",
+        "contentMarkdown": "",
+        "sortOrder": 320,
+        "children": []
+      },
+      {
+        "slug": "environment",
+        "parentSlug": "world-rules",
+        "title": "Environment",
+        "summary": "",
+        "contentMarkdown": "",
+        "sortOrder": 330,
+        "children": []
+      },
+      {
+        "slug": "social-interaction",
+        "parentSlug": "world-rules",
+        "title": "Social interaction",
+        "summary": "",
+        "contentMarkdown": "",
+        "sortOrder": 340,
+        "children": []
+      },
+      {
+        "slug": "rest",
+        "parentSlug": "world-rules",
+        "title": "Rest",
+        "summary": "",
+        "contentMarkdown": "",
+        "sortOrder": 350,
+        "children": []
+      }
+    ]
+  },
+  {
+    "slug": "combat",
+    "parentSlug": null,
+    "title": "Combat",
+    "summary": "",
+    "contentMarkdown": "",
+    "sortOrder": 400,
+    "children": [
+      {
+        "slug": "initiative",
+        "parentSlug": "combat",
+        "title": "Initiative",
+        "summary": "",
+        "contentMarkdown": "",
+        "sortOrder": 410,
+        "children": []
+      },
+      {
+        "slug": "combat-movement-positioning",
+        "parentSlug": "combat",
+        "title": "Movement and positioning in combat",
+        "summary": "",
+        "contentMarkdown": "",
+        "sortOrder": 420,
+        "children": []
+      },
+      {
+        "slug": "actions-turn",
+        "parentSlug": "combat",
+        "title": "Actions and turn",
+        "summary": "",
+        "contentMarkdown": "",
+        "sortOrder": 430,
+        "children": []
+      },
+      {
+        "slug": "making-an-attack",
+        "parentSlug": "combat",
+        "title": "Making an attack",
+        "summary": "",
+        "contentMarkdown": "",
+        "sortOrder": 440,
+        "children": []
+      },
+      {
+        "slug": "damage-and-healing",
+        "parentSlug": "combat",
+        "title": "Damage and healing",
+        "summary": "",
+        "contentMarkdown": "",
+        "sortOrder": 450,
+        "children": []
+      },
+      {
+        "slug": "mounted-combat",
+        "parentSlug": "combat",
+        "title": "Mounted combat",
+        "summary": "",
+        "contentMarkdown": "",
+        "sortOrder": 460,
+        "children": []
+      },
+      {
+        "slug": "underwater-combat",
+        "parentSlug": "combat",
+        "title": "Underwater combat",
+        "summary": "",
+        "contentMarkdown": "",
+        "sortOrder": 470,
+        "children": []
+      }
+    ]
+  },
+  {
+    "slug": "spellcasting",
+    "parentSlug": null,
+    "title": "Spellcasting",
+    "summary": "",
+    "contentMarkdown": "",
+    "sortOrder": 500,
+    "children": [
+      {
+        "slug": "magic-sources",
+        "parentSlug": "spellcasting",
+        "title": "Magic sources",
+        "summary": "",
+        "contentMarkdown": "",
+        "sortOrder": 510,
+        "children": []
+      },
+      {
+        "slug": "magic-types",
+        "parentSlug": "spellcasting",
+        "title": "Magic types",
+        "summary": "",
+        "contentMarkdown": "",
+        "sortOrder": 520,
+        "children": []
+      },
+      {
+        "slug": "spellcasting-mishaps",
+        "parentSlug": "spellcasting",
+        "title": "Spellcasting mishaps",
+        "summary": "",
+        "contentMarkdown": "",
+        "sortOrder": 530,
+        "children": []
+      },
+      {
+        "slug": "ritual-list",
+        "parentSlug": "spellcasting",
+        "title": "Ritual list",
+        "summary": "",
+        "contentMarkdown": "",
+        "sortOrder": 540,
+        "children": []
+      },
+      {
+        "slug": "spell-list",
+        "parentSlug": "spellcasting",
+        "title": "Spell list",
+        "summary": "",
+        "contentMarkdown": "",
+        "sortOrder": 550,
+        "children": []
+      },
+      {
+        "slug": "sign-list",
+        "parentSlug": "spellcasting",
+        "title": "Sign list",
+        "summary": "",
+        "contentMarkdown": "",
+        "sortOrder": 560,
+        "children": []
+      }
+    ]
+  }
+]
