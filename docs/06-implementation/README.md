@@ -82,3 +82,7 @@ Windows-установщик:
 ```
 
 App image работает без отдельной установки Java, так как содержит runtime. Для Windows installer требуется WiX Toolset.
+
+## Статический анализ
+
+Сводный отчет по статическому анализу и проверкам качества расположен в [`static-analysis.md`](static-analysis.md).

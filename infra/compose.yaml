@@ -14,11 +14,42 @@ services:
       interval: 5s
       timeout: 3s
       retries: 10
+
   mailpit:
     image: axllent/mailpit:v1.27
     ports:
       - "1025:1025"
       - "8025:8025"
+
+  backend:
+    build:
+      context: ..
+      dockerfile: infra/docker/backend.Dockerfile
+    environment:
+      PFP_DB_URL: jdbc:postgresql://postgres:5432/pfp
+      PFP_DB_USERNAME: pfp
+      PFP_DB_PASSWORD: pfp
+      PFP_MAIL_HOST: mailpit
+      PFP_MAIL_PORT: 1025
+      PFP_JWT_SECRET: pfp-local-development-secret-change-me-please
+      PFP_FRONTEND_BASE_URL: http://localhost:5173
+      PFP_OAUTH2_FRONTEND_CALLBACK_URL: http://localhost:5173/oauth2/callback
+    ports:
+      - "8080:8080"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      mailpit:
+        condition: service_started
+
+  web:
+    build:
+      context: ..
+      dockerfile: infra/docker/web.Dockerfile
+    ports:
+      - "5173:80"
+    depends_on:
+      - backend
 
 volumes:
   pfp-postgres-data:

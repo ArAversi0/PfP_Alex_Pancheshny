@@ -86,10 +86,18 @@ Infrastructure:
 
 ## Локальный запуск
 
+### Полный стек через Docker Compose
+
+```powershell
+docker compose -f infra/compose.yaml up --build
+```
+
+Compose поднимает PostgreSQL, Mailpit, backend API и web-клиент. Web-клиент доступен на `http://localhost:5173`, backend - на `http://localhost:8080`, Mailpit UI - на `http://localhost:8025`.
+
 ### Инфраструктура
 
 ```powershell
-docker compose -f infra/compose.yaml up -d
+docker compose -f infra/compose.yaml up -d postgres mailpit
 ```
 
 PostgreSQL доступен на `localhost:5432`, Mailpit UI - на `http://localhost:8025`.
@@ -151,6 +159,12 @@ cd apps\web
 npm run build
 ```
 
+Статический анализ и сводка проверок:
+
+```text
+docs/06-implementation/static-analysis.md
+```
+
 Desktop app image:
 
 ```powershell
@@ -176,6 +190,14 @@ $env:JAVA_HOME="C:\Users\user\.jdks\corretto-23.0.2"
 ## Статистика разработки
 
 В ходе разработки велась локальная история коммитов. Ниже приведены скриншоты активности, подготовленные по истории репозитория.
+
+### Метрики Git
+
+- Всего коммитов: 87
+- Период разработки: 21.06.2026 - 22.06.2026
+- Средняя частота: 75.6 коммитов/день по локальной истории
+
+Полный набор скриншотов интерфейса расположен в [docs/07-ui/screenshots.md](docs/07-ui/screenshots.md).
 
 ### Commit Activity
 
