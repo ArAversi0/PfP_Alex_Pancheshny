@@ -1,3 +1,5 @@
+name: pfp
+
 services:
   postgres:
     image: postgres:17-alpine
@@ -31,9 +33,11 @@ services:
       PFP_DB_PASSWORD: pfp
       PFP_MAIL_HOST: mailpit
       PFP_MAIL_PORT: 1025
-      PFP_JWT_SECRET: pfp-local-development-secret-change-me-please
-      PFP_FRONTEND_BASE_URL: http://localhost:5173
-      PFP_OAUTH2_FRONTEND_CALLBACK_URL: http://localhost:5173/oauth2/callback
+      PFP_JWT_SECRET: ${PFP_JWT_SECRET:-pfp-local-development-secret-change-me-please}
+      PFP_FRONTEND_BASE_URL: ${PFP_FRONTEND_BASE_URL:-http://localhost:5173}
+      PFP_OAUTH2_FRONTEND_CALLBACK_URL: ${PFP_OAUTH2_FRONTEND_CALLBACK_URL:-http://localhost:5173/oauth2/callback}
+      PFP_GOOGLE_CLIENT_ID: ${PFP_GOOGLE_CLIENT_ID:-}
+      PFP_GOOGLE_CLIENT_SECRET: ${PFP_GOOGLE_CLIENT_SECRET:-}
     ports:
       - "8080:8080"
     depends_on:

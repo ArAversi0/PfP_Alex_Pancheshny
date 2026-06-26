@@ -1,4 +1,4 @@
-﻿# PfP Companion System
+# PfP Companion System
 
 **PfP Companion System** - enterprise-приложение для ведения персонажей, правил и лора собственной настольной ролевой системы **PfP (Pain for Pleasure)**. Проект объединяет веб-клиент, desktop-клиент, backend API, PostgreSQL-хранилище, админский контур и общий модуль игровых правил.
 
@@ -88,11 +88,28 @@ Infrastructure:
 
 ### Полный стек через Docker Compose
 
+Одна команда для сборки backend jar, сборки web-клиента и запуска всех контейнеров:
+
 ```powershell
-docker compose -f infra/compose.yaml up --build
+.\infra\start-stack.ps1
 ```
 
-Compose поднимает PostgreSQL, Mailpit, backend API и web-клиент. Web-клиент доступен на `http://localhost:5173`, backend - на `http://localhost:8080`, Mailpit UI - на `http://localhost:8025`.
+Скрипт поднимает PostgreSQL, Mailpit, backend API и web-клиент через Docker Compose. Web-клиент доступен на `http://localhost:5173`, backend - на `http://localhost:8080`, Mailpit UI - на `http://localhost:8025`.
+
+Для JWT и Google OAuth2 используется локальный `.env`, который не коммитится. Создайте его из шаблона и заполните реальные значения самостоятельно:
+
+```powershell
+Copy-Item .env.example .env
+notepad .env
+```
+
+Минимально для стабильных JWT нужен `PFP_JWT_SECRET` длиной не меньше 32 байт. Для Google OAuth2 заполните `PFP_GOOGLE_CLIENT_ID` и `PFP_GOOGLE_CLIENT_SECRET`; в Google Cloud Console добавьте Authorized redirect URI: `http://localhost:8080/login/oauth2/code/google`. После изменения `.env` перезапустите стек командой `.\infra\start-stack.ps1`.
+
+Если backend jar и `apps/web/dist` уже собраны, можно запустить только контейнеры:
+
+```powershell
+docker compose -f infra/compose.yaml up -d --build
+```
 
 ### Инфраструктура
 
@@ -193,9 +210,9 @@ $env:JAVA_HOME="C:\Users\user\.jdks\corretto-23.0.2"
 
 ### Метрики Git
 
-- Всего коммитов: 87
-- Период разработки: 21.06.2026 - 22.06.2026
-- Средняя частота: 75.6 коммитов/день по локальной истории
+- Основной этап разработки: 40 коммитов
+- Период основной разработки: 04.05.2026 - 11.06.2026
+- Средняя частота: около 1.0 коммита в календарный день и 1.5 коммита в активный день
 
 Полный набор скриншотов интерфейса расположен в [docs/07-ui/screenshots.md](docs/07-ui/screenshots.md).
 
